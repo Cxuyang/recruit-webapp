@@ -35,6 +35,7 @@ export function applyMiddleware(...middlewares) {
       getState: store.getState,
       dispatch: (...args) => dispatch(...args)
     }
+    // 将每个中间件(函数)都用dispatch包一层, 在其中执行完中间件后在执行dispatch
     const middlewaresChain = middlewares.map(middleware => middleware(midApi))
     dispatch = compose(...middlewaresChain)(store.dispatch)
     return {
@@ -43,6 +44,7 @@ export function applyMiddleware(...middlewares) {
     }
   }
 }
+// 多个中间件的话 就是 fn1(fn2(fn3()))  如此的以此调用中间件函数
 export function compose(...funcs) {
   if (funcs.length == 0) {
     return arg => arg
