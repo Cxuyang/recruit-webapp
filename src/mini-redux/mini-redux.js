@@ -1,6 +1,8 @@
 
 export function createStore(reducer, enhancer) {
+  // enhancer 增强器 或者叫中间件
   if (enhancer) {
+    // 扩展createStore 然后传给reducer进行初始化
     return enhancer(createStore)(reducer)
   }
   let currentState = {}
@@ -24,6 +26,7 @@ export function createStore(reducer, enhancer) {
   return { getState, subscribe, dispatch}
 }
 // 中间件
+// Redux 目的是提供第三方插件的模式，改变action -> reducer 的过程。变为 action -> middlewares -> reducer 。自己在项目中使用它改变数据流，实现异步 action
 export function applyMiddleware(...middlewares) {
   return createStore => (...args) => {
     const store = createStore(...args)
