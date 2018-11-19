@@ -38,6 +38,17 @@ function errorMsg(msg) {
 export function loadData(userinfo) {
   return {type: LOAD_DATA, payload: userinfo}
 }
+// async + await 配合使用, await必须在async内部
+// export function update(data) {
+//   return (dispatch)=>{
+//   	const res = await axios.post('/user/update', data)
+// 	if (res.status===200 && res.data.code === 0) {
+// 	  dispatch(authSuccess(res.data.data))
+// 	} else {
+// 	  dispatch(errorMsg(res.data.msg))
+// 	}
+//   }
+// }
 export function update(data) {
   return dispatch=>{
     axios.post('/user/update', data).then(res => {
