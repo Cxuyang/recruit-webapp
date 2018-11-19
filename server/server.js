@@ -21,6 +21,14 @@ io.on('connection', function(socket) { // socket参数只单次的socket连接  
     })
   })
 })
+// node 启动网站
+// app.use(function(req, res, next){
+//   if (req.url.startsWith('/user/') || req.url.startsWith('/static/')) {
+//   	return next()
+//   }
+//   return res.sendFile(path.resolve('build'))
+// })
+// app.use('/', express.static(path.resolve('build')))
 app.use(cookieParser())
 app.use(bodyParser.json())
 app.use('/user', userRouter)
