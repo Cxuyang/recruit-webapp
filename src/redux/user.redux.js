@@ -40,7 +40,7 @@ export function loadData(userinfo) {
 }
 // async + await 配合使用, await必须在async内部
 // export function update(data) {
-//   return (dispatch)=>{
+//   return async (dispatch)=>{
 //   	const res = await axios.post('/user/update', data)
 // 	if (res.status===200 && res.data.code === 0) {
 // 	  dispatch(authSuccess(res.data.data))
