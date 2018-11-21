@@ -21,6 +21,7 @@ const store = createStore(reducers, compose(
 ))
 // switch 标签下 命中一个就返回 不用switch标签则会命中标签和默认没有路径的组件 如组件Dashboard
 ReactDOM.render(
+  // 将store作为公共数据放入context中
   (<Provider store = {store}>
     <BrowserRouter>
       <div>
