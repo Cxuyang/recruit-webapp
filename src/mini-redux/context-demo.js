@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-// context  相当于mixin
 // React.withContext 会执行一个指定的上下文信息的回调函数,任何在这个回调函数里面渲染的组件都有这个context的访问权限。
 // context 是全局的, 组件里申明, 所有子元素可以直接获取
 // 如果你为一个组件指定了context，那么这个组件的子组件只要定义了contextTypes 属性，就可以访问到父组件指定的context了
